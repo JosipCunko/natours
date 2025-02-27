@@ -19,6 +19,9 @@ const compression = require("compression");
 
 const app = express();
 //1) GLOBAL MIDDLEWARES - fns that modifes incoming request data
+
+app.enable("trust proxy");
+
 // Set security HTTP headers
 app.use(helmet());
 
@@ -38,7 +41,11 @@ app.use("/api", limiter);
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
+// Access-Control-Allow-Origin *
 app.use(cors({ origin: "http://localhost:8000", credentials: true }));
+
+//Http method, complex operations allowed
+app.options("*", cors());
 
 // Data sanitization against NoSQL query injection
 //Basically filters out all of the $, dots... ($gt)
