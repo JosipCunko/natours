@@ -21,6 +21,7 @@ const app = express();
 //1) GLOBAL MIDDLEWARES - fns that modifes incoming request data
 
 app.enable("trust proxy");
+app.set("trust proxy", 1);
 
 // Set security HTTP headers
 app.use(helmet());

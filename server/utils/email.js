@@ -1,9 +1,17 @@
 const nodemailer = require("nodemailer");
-const React = require("react");
-const ReactDOMServer = require("react-dom/server");
-const EmailTemplate = require("../../client/app/_components/EmailTemplateParsed");
-const PasswordResetTemplate = require("../../client/app/_components/PasswordResetTemplateParsed");
+const fs = require("fs");
+const path = require("path");
 const htmlToText = require("html-to-text");
+
+// Read HTML templates
+const EmailTemplate = fs.readFileSync(
+  path.join(__dirname, "../public/templates/EmailTemplate.html"),
+  "utf-8"
+);
+const PasswordResetTemplate = fs.readFileSync(
+  path.join(__dirname, "../public/templates/PasswordResetTemplate.html"),
+  "utf-8"
+);
 
 // new Email(user, url).sendWelcome()
 // new Email(user, url).sendPasswordReset()
@@ -42,25 +50,17 @@ module.exports = class Email {
     });
   }
   async send(subject, message) {
-    // 1) Render React template to HTML
+    // 1) Render HTML template
     let html;
     if (message) {
-      html = ReactDOMServer.renderToString(
-        React.createElement(PasswordResetTemplate, {
-          subject,
-          name: this.firstName,
-          url: this.url,
-          message,
-        })
-      );
+      html = PasswordResetTemplate.replace(/{{subject}}/g, subject)
+        .replace(/{{message}}/g, message)
+        .replace(/{{firstName}}/g, this.firstName)
+        .replace(/{{url}}/g, this.url);
     } else {
-      html = ReactDOMServer.renderToString(
-        React.createElement(EmailTemplate, {
-          subject,
-          name: this.firstName,
-          url: this.url,
-        })
-      );
+      html = EmailTemplate.replace(/{{subject}}/g, subject)
+        .replace(/{{firstName}}/g, this.firstName)
+        .replace(/{{url}}/g, this.url);
     }
 
     // 2) Define email options

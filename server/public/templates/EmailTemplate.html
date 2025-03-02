@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{{subject}}</title>
+    <style>
+      img {
+        border: none;
+        -ms-interpolation-mode: bicubic;
+        max-width: 100%;
+      }
+      body {
+        background-color: #f6f6f6;
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      .container {
+        display: block;
+        margin: 0 auto;
+        max-width: 580px;
+        padding: 10px;
+        width: 580px;
+      }
+      .content {
+        background: #ffffff;
+        border-radius: 3px;
+        padding: 20px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #999999;
+      }
+      .btn-primary a {
+        background-color: #55c57a;
+        border: solid 1px #55c57a;
+        border-radius: 5px;
+        color: #ffffff;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 12px 25px;
+        text-decoration: none;
+        text-transform: capitalize;
+      }
+      .btn-primary a:hover {
+        background-color: #2e864b;
+        border-color: #2e864b;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      class="body"
+      role="presentation"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+    >
+      <tr>
+        <td></td>
+        <td class="container">
+          <div class="content">
+            <h1>Hi {{firstName}},</h1>
+            <p>Welcome to Natours, we're glad to have you 🎉🙏</p>
+            <p>
+              We're all a big family here, so make sure to upload your user
+              photo so we get to know you a bit better!
+            </p>
+            <table
+              class="btn btn-primary"
+              role="presentation"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+            >
+              <tr>
+                <td align="left">
+                  <table
+                    role="presentation"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                  >
+                    <tr>
+                      <td>
+                        <a href="{{url}}" target="_blank">Upload user photo</a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <p>
+              If you need any help with booking your next tour, please don't
+              hesitate to contact me!
+            </p>
+            <p>- Jonas Schmedtmann, CEO</p>
+          </div>
+          <div class="footer">
+            <p>Natours Inc, 123 Nowhere Road, San Francisco CA 99999</p>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>
