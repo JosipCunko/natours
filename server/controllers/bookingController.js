@@ -12,9 +12,8 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     //NEXTJS ROUTE HANDLER
-    //CHANGE URL WHEN DEPLOYED WEBSITE
-    success_url: `http://localhost:8000/api/bookings/?tour=${req.params.tourId}&price=${tour.price}`,
-    cancel_url: `http://localhost:8000/tour/${tour.id}`,
+    success_url: `https://natours-zeta-six.vercel.app/api/bookings/?tour=${req.params.tourId}&price=${tour.price}`,
+    cancel_url: `https://natours-zeta-six.vercel.app/tour/${tour.id}`,
     customer_email: req.user.email,
     client_reference_id: req.params.tourId,
     line_items: [

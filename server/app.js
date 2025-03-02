@@ -43,7 +43,9 @@ app.use("/api", limiter);
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
 // Access-Control-Allow-Origin *
-app.use(cors({ origin: "http://localhost:8000", credentials: true }));
+app.use(
+  cors({ origin: "https://natours-zeta-six.vercel.app", credentials: true })
+);
 
 //Http method, complex operations allowed
 app.options("*", cors());

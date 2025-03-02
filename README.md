@@ -50,8 +50,8 @@ Natours is a full-stack web application for booking and managing adventure tours
 
 ## Access the application:
 
-- Frontend: `http://localhost:8000`
-- Backend: `http://localhost:3000`
+- Frontend: `https://natours-zeta-six.vercel.app`
+- Backend: `https://natours-sluw.onrender.com/api/v1`
 
 ## API Documentation
 

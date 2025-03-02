@@ -50,8 +50,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordConfirm: req.body.passwordConfirm,
   });
 
-  // CHANGE FOR PRODUCTION
-  const url = `http://localhost:8000/me`;
+  const url = `https://natours-zeta-six.vercel.app/me`;
   await new Email(newUser, url).sendWelcome();
 
   createAndSendToken(newUser, 201, req, res);
